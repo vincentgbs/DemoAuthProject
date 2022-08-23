@@ -1,0 +1,38 @@
+.body {
+  width: 99%;
+  height: 99%;
+  float: left;
+}
+
+.left_column {
+    width: 49%;
+    height: 99%;
+    float: left;
+    text-align: center;
+}
+.right_column {
+    width: 49%;
+    height: 99%;
+    float: right;
+    text-align: center;
+}
+
+.code_editor {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    border-style: solid;
+    font-family: Courier New,Lucida Console;
+    text-align: left;
+}
+
+.runtime_environment {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    border-style: solid;
+}
+
+.run_button {
+    padding: 3px 15px 3px 15px;
+}
