@@ -34,17 +34,19 @@ function create_editor(divId, parent, instructions) {
 }
 
 function create_documentation(parent) {
-    child = document.createElement('div');
-    child.setAttribute("id", 'documentation');
-    child.innerHTML = `<h3>Documentation</h3>`
-    document.querySelector(parent).appendChild(child)
+    doc = document.createElement('div');
+    doc.setAttribute("id", 'documentation');
+    doc.innerHTML = `<h3>Documentation</h3>
+project`
+    document.querySelector(parent).appendChild(doc)
 }
 
 instructions1 = 'Create a basic login form based on the elements you learned about in the previous lessons. <br>1. Make sure to include inputs named "username" and "password". <br>2. Be sure that the password is not visible when the user is typing it. <br>3. Include a button that submits the user input to the backend.'
 instructions2 = 'Now let\'s simulate a simple backend that could process a user\'s login information. For this exercise, we\'ll just use Javascript to walk through the process of processing the data. <br>1. First we must receive the data from the user and store it in variables. <br>2. Then we must check the database for the username and compare the passwords. To do this, we must connect to the database using the provided project class <a href="#documentation">documentation</a>. <br>3. For this project, the database user is `admin`, the password is `password`, and the host is `localhost`.'
 
 const project = {
-    // Note: these are not real hash function, they are only used for the purpose of this lesson. DO NOT use this code outside of this project.
+    // Note: DO NOT use this style of code outside of this project. These
+    // functions are provided only to give students a framework to work within.
     connect: function(dbuser, dbpass, dbhost) {
         var database;
         if (dbuser == 'admin' && dbpass == 'password' && dbhost == 'localhost') {
@@ -57,9 +59,12 @@ const project = {
     },
     select: function(connection, username) {
         if (connection == 'EXAMPLE DATABASE CONNECTION OBJECT') {
-            return {'username': username, 'password': '', 'salt': ''}
+            return {'username': username, 'password': 'cGFzc3dvcmRBQkNERTEyMzQ1', 'salt': 'ABCDE12345'}
+        } else {
+            return 'INVALID CONNECTION'
         }
     },
+    // Note: these are not real hash function, they are only used for the purpose of this lesson. DO NOT use this code outside of this project.
     hash: function(key) {
         return window.btoa(key);
     }

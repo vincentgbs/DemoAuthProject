@@ -36,3 +36,12 @@
 .run_button {
     padding: 3px 15px 3px 15px;
 }
+
+.instructions {
+  text-align: center;
+}
+
+#documentation {
+    margin-top: 100px;
+    text-align: center;
+}
