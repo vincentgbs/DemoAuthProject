@@ -1,4 +1,4 @@
-.body {
+.editor_body {
   width: 99%;
   height: 99%;
   float: left;
@@ -19,7 +19,7 @@
 
 .code_editor {
     width: 100%;
-    min-height: 500px;
+    min-height: 300px;
     height: 100%;
     border-style: solid;
     font-family: Courier New,Lucida Console;
@@ -28,7 +28,7 @@
 
 .runtime_environment {
     width: 100%;
-    min-height: 500px;
+    min-height: 300px;
     height: 100%;
     border-style: solid;
 }
