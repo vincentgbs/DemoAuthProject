@@ -33,16 +33,8 @@ function create_editor(divId, parent, instructions) {
     editor('#'+divId, instructions);
 }
 
-function create_documentation(parent) {
-    doc = document.createElement('div');
-    doc.setAttribute("id", 'documentation');
-    doc.innerHTML = `<h3>Documentation</h3>
-project`
-    document.querySelector(parent).appendChild(doc)
-}
-
 instructions1 = 'Create a basic login form based on the elements you learned about in the previous lessons. <br>1. Make sure to include inputs named "username" and "password". <br>2. Be sure that the password is not visible when the user is typing it. <br>3. Include a button that submits the user input to the backend.'
-instructions2 = 'Now let\'s simulate a simple backend that could process the submitted login form and grant access only if the passwords match. For this exercise, we\'ll just use Javascript to walk through the process of processing the data. <br>1. First we must receive the data from the user and store it in variables. <br>2. Then we must check the database for the username and compare the passwords. To do this, we must connect to the database using the provided project class <a href="#documentation">documentation</a>. <br>3. For this project, the database user is `admin`, the password is `password`, and the host is `localhost`. <br>4. Once you have connected to the database, you must get the user information that it stored there. Normally this could be done through a database query something like: "SELECT `username`, `password`, `salt` FROM `users` WHERE `username`=\'student\';" but in this case, you can just use the project\'s select function to get that information. <br>5. After getting the user infomation, you must hash the input password and the database salt in order to check them against the database password. This is done so that a user\'s plaintext password is never stored in the database. <br>6. Return true if the passwords match and false if they do not. For this project the sample user is "student" and the same password is "password".'
+instructions2 = 'Now let\'s simulate a simple backend that could process the submitted login form and grant access only if the passwords match. For this exercise, we\'ll just use Javascript to walk through the process of processing the data. <br>1. First we must receive the data from the user and store it in variables. <br>2. Then we must check the database for the username and compare the passwords. To do this, we must connect to the database using the provided project class documentation below. <br>3. For this project, the database user is `admin`, the password is `password`, and the host is `localhost`. <br>4. Once you have connected to the database, you must get the user information that it stored there. Normally this could be done through a database query something like: "SELECT `username`, `password`, `salt` FROM `users` WHERE `username`=\'student\';" but in this case, you can just use the project\'s select function to get that information. <br>5. After getting the user infomation, you must hash the input password and the database salt in order to check them against the database password. This is done so that a user\'s plaintext password is never stored in the database. <br>6. Return true if the passwords match and false if they do not. For this project the sample user is "student" and the same password is "password".'
 
 const project = {
     // Note: DO NOT use this style of code outside of this project. These
@@ -73,5 +65,4 @@ const project = {
 document.addEventListener('DOMContentLoaded', function(event) {
   create_editor('first_row', '#root', instructions1);
   create_editor('second_row', '#root', instructions2);
-  create_documentation('#root')
 });
