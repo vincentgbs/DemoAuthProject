@@ -14,7 +14,7 @@ def lambda_handler(event, context):
                 'feedback' : 'Something is missing'
             }
     elif event['submission'] == 'javascript':
-        pass
+        pass ## TODO
     else:
         return {
             'feedback': 'Invalid submission'

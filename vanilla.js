@@ -42,7 +42,7 @@ project`
 }
 
 instructions1 = 'Create a basic login form based on the elements you learned about in the previous lessons. <br>1. Make sure to include inputs named "username" and "password". <br>2. Be sure that the password is not visible when the user is typing it. <br>3. Include a button that submits the user input to the backend.'
-instructions2 = 'Now let\'s simulate a simple backend that could process a user\'s login information. For this exercise, we\'ll just use Javascript to walk through the process of processing the data. <br>1. First we must receive the data from the user and store it in variables. <br>2. Then we must check the database for the username and compare the passwords. To do this, we must connect to the database using the provided project class <a href="#documentation">documentation</a>. <br>3. For this project, the database user is `admin`, the password is `password`, and the host is `localhost`.'
+instructions2 = 'Now let\'s simulate a simple backend that could process the submitted login form and grant access only if the passwords match. For this exercise, we\'ll just use Javascript to walk through the process of processing the data. <br>1. First we must receive the data from the user and store it in variables. <br>2. Then we must check the database for the username and compare the passwords. To do this, we must connect to the database using the provided project class <a href="#documentation">documentation</a>. <br>3. For this project, the database user is `admin`, the password is `password`, and the host is `localhost`. <br>4. Once you have connected to the database, you must get the user information that it stored there. Normally this could be done through a database query something like: "SELECT `username`, `password`, `salt` FROM `users` WHERE `username`=\'student\';" but in this case, you can just use the project\'s select function to get that information. <br>5. After getting the user infomation, you must hash the input password and the database salt in order to check them against the database password. This is done so that a user\'s plaintext password is never stored in the database. <br>6. Return true if the passwords match and false if they do not. For this project the sample user is "student" and the same password is "password".'
 
 const project = {
     // Note: DO NOT use this style of code outside of this project. These
@@ -59,7 +59,7 @@ const project = {
     },
     select: function(connection, username) {
         if (connection == 'EXAMPLE DATABASE CONNECTION OBJECT') {
-            return {'username': username, 'password': 'cGFzc3dvcmRBQkNERTEyMzQ1', 'salt': 'ABCDE12345'}
+            return {'username': 'student', 'password': 'cGFzc3dvcmRBQkNERTEyMzQ1', 'salt': 'ABCDE12345'}
         } else {
             return 'INVALID CONNECTION'
         }
