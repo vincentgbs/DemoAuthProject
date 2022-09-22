@@ -40,7 +40,10 @@
 .instructions {
     text-align: center;
 }
-.documentation h2 {
+.documentation h2, h3 {
+    text-align: center;
+}
+.title {
     text-align: center;
 }
 

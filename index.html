@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>User Login Exercise</title>
     <script type="text/javascript" src="vanilla.js"></script>
+    <script type="text/javascript" src="project.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -18,16 +19,19 @@
     <div class="documentation" id="project_documentation">
         <h2>Project Documentation</h2>
         <p>A `project` object that is provided to help simulate some of the functions needed to complete this task.</p>
+        <br>
         <code>
             project.connect(dbuser, dbpass, dbhost)
                 returns {a database connection object}
         </code>
         <p>The default dbuser is 'admin', dbpass is 'password', and dbhost is 'localhost'. This function simulates the connection to a database that might be created through a module.</p>
+        <br>
         <code>
             project.select(connection, username)
                 returns {an object with the username, hashed password, and salt from the database}
         </code>
-        <p>The expected username is 'student', password is 'password'. This function simulates the results of executing a select statement on a users database.</p>
+        <br>
+        <p>The expected username is 'student', password is 'password'. This function simulates the results of executing a select statement on a SQL database.</p>
         <code>
             project.hash(key)
                 returns {the hashed value of the key}
