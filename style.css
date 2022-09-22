@@ -1,7 +1,7 @@
 .editor_body {
-  width: 99%;
-  height: 99%;
-  float: left;
+    width: 99%;
+    height: 99%;
+    float: left;
 }
 
 .left_column {
@@ -42,4 +42,8 @@
 }
 .documentation h2 {
     text-align: center;
+}
+
+.body {
+    display: inline-block;
 }
