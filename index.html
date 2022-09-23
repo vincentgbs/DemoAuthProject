@@ -10,8 +10,22 @@
   <body>
     <div class="instructions">
         <h2>User Login Exercise</h2>
-        <p>In this exercise, we will review some of the basics principals of internet security while creating a login page for users. We will review some of the <a href="#review_documentation">html elements</a> that you have learned about in previous lessons (forms, inputs, etc). You will also learn: a high level overview of user authentication, and how user passwords can be stored in a database without storing them in plaintext. You will implement a comparison of inputs while reviewing the purpose and utility of hash functions. Below there is some <a href="#project_documentation">documentation</a> on the framework provided for this project.</p>
-        <p><!-- TODO: how do logins work, problems with plaintext storage, benefit of hash functions --></p>
+        <p><strong>Overview:</strong> In this exercise, you will learn some basics principals of internet security by creating a login page for users. You will review some of the <a href="#review_documentation">html elements</a> that you learned about in previous lessons (forms, inputs, etc). You will learn: a high level overview of user authentication, and how user passwords can be stored in a database. You will implement a comparison of inputs while reviewing the purpose and utility of hash functions. Below there is some <a href="#project_documentation">documentation</a> on the framework provided for this project.</p>
+        <p>We use logins for nearly everything today. Have you ever wondered how they work? Most web logins consist of a username and password. While some also require another code or a fingerprint or a usb key, we won't dive into MFA (multi-factor authentication) and why it's important in this exercise. We won't talk about password managers either, although that's another good practice for you to do some further research on.</p>
+        <p>How do usernames and passwords work? When you first register for a website, you typically choose your own username and login. You enter them into a form, and some data (perhaps that exact data) is sent to the server and stored in a database. The next time you want to log into the site, you must enter the same username and password to be granted access. Only if what you enter when you return matches what you entered when you registered, will you get access. So what happens on the backend?</p>
+        <p>Is your username and password saved in that database, and used for comparison when you try to login again? That seems like a pretty straightforward solution:</p>
+        <pre><code>
+        if (entered_username==db_username && entered_password==db_password) {
+          return true;
+        } else {
+          return false;
+        }
+        </code></pre>
+        <p>What are the drawbacks to this approach? If the database is breached, then everyone will know your password.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p><!-- TODO: problems with plaintext storage, benefit of hash functions --></p>
     </div>
     <div class="body">
         <div id="root"><!-- root --></div>
@@ -38,7 +52,7 @@
                 returns {the hashed value of the key}
         </code>
         <p>This function simulates a hash function where the returned value will be consistent if the key if the same.</p>
-        <h3 id="review_documentation">Other Helpful Hints</h3>
+        <h3 id="review_documentation">Review Documentation</h3>
         <p>Html form elements are used to get input from users. A form has a number of attributes:
           <ul>
             <li>action: the destination where the input will be sent</li>
