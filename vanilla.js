@@ -2,12 +2,12 @@ function editor(parent, instructions, title) {
     document.querySelector(parent).innerHTML = `
     <h2 class="title">`+title+`</h2>
     <div class="left_column">
-        <h3>Enter your code below:</h3>
+        <h3>Enter your code here:</h3>
         <div class="code_editor" contenteditable>`+instructions+`</div>
         <button class="run_button">Run</button>
     </div>
     <div class="right_column">
-        <h3>Check your results:</h3>
+        <h3>Preview your code here:</h3>
         <iframe class="runtime_environment"></iframe>
         <button class="submit_button">Submit</button>
     </div>`;
@@ -34,11 +34,3 @@ function create_editor(divId, parent, instructions, title) {
     document.querySelector(parent).appendChild(child);
     editor('#'+divId, instructions, title);
 }
-
-instructions1 = 'Create a basic login form based on the elements you learned about in the previous lessons. <br>1. Make sure to include inputs named "username" and "password". <br>2. Be sure that the password is not visible when the user is typing it. <br>3. Include a button that submits the user input to the backend. <br>4. The form does not need to submit to a specific url, you can use "#" as the destination for this example.'
-instructions2 = 'Now let\'s simulate a simple backend that could process the submitted login form and grant access only if the passwords match. For this exercise, we\'ll just use Javascript to walk through the process of processing the data. <br>1. First we must receive the data from the user and store it in a variable. For this project, we\'ll receive those values from a "POST" variable. <br>2. Then we must check the database for the username and compare the passwords. To do this, we must connect to the database using the provided project class documentation below. <br>3. For this project, the database user is `admin`, the password is `password`, and the host is `localhost`. <br>4. Once you have connected to the database, you must get the user information that it stored there. Normally this could be done through a database query something like: "SELECT `username`, `password`, `salt` FROM `users` WHERE `username`=\'student\';" but in this case, you can just use the project\'s select function to get that information. <br>5. After getting the user infomation, you must hash the input password and the database salt in order to check them against the database password. This is done so that a user\'s plaintext password is never stored in the database. <br>6. Return true if the passwords match and false if they do not. For this project the sample user is "student" and the same password is "password".'
-
-document.addEventListener('DOMContentLoaded', function(event) {
-  create_editor('login_form', '#root', instructions1, 'Create Form (Frontend)');
-  create_editor('backend_process', '#root', instructions2, 'Create Login (Backend)');
-});
