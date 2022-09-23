@@ -10,14 +10,15 @@
   <body>
     <div class="instructions">
         <h2>User Login Exercise</h2>
-        <p>In this exercise, we will review some of the basics principals of internet security while creating a login page for users. We will review some of the html elements that you have learned about in previous lessons (forms, inputs, etc). You will also learn: a high level overview of user authentication, and how user passwords can be stored in a database without storing them in plaintext. You will implement a comparison of inputs while reviewing the purpose and utility of hash functions. <a href="#project_documentation">Below</a> there is some documentation on the framework provided for this project.</p>
+        <p>In this exercise, we will review some of the basics principals of internet security while creating a login page for users. We will review some of the <a href="#review_documentation">html elements</a> that you have learned about in previous lessons (forms, inputs, etc). You will also learn: a high level overview of user authentication, and how user passwords can be stored in a database without storing them in plaintext. You will implement a comparison of inputs while reviewing the purpose and utility of hash functions. Below there is some <a href="#project_documentation">documentation</a> on the framework provided for this project.</p>
+        <p><!-- TODO: how do logins work, problems with plaintext storage, benefit of hash functions --></p>
     </div>
     <div class="body">
         <div id="root"><!-- root --></div>
     </div>
     <hr>
-    <div class="documentation" id="project_documentation">
-        <h2>Project Documentation</h2>
+    <div class="documentation">
+        <h2 id="project_documentation">Project Documentation</h2>
         <p>A `project` object that is provided to help simulate some of the functions needed to complete this task.</p>
         <br>
         <code>
@@ -37,17 +38,19 @@
                 returns {the hashed value of the key}
         </code>
         <p>This function simulates a hash function where the returned value will be consistent if the key if the same.</p>
-        <h3>Other Helpful Hints</h3>
-        <p>Html form elements are used to get input from users. The form has a number of attributes:
+        <h3 id="review_documentation">Other Helpful Hints</h3>
+        <p>Html form elements are used to get input from users. A form has a number of attributes:
           <ul>
             <li>action: the destination where the input will be sent</li>
             <li>method: the way the input will be sent, a get request will be visible in the users browser, while a post request will be sent embedded in the body of the request</li>
             <li>target: the way that a response will be displayed</li>
           </ul>
         </p>
-        <code>&lt;form action="#" method="get" target="_self"&gt;&lt;/form &gt;</code>
-        <p>Forms have input elements that allow users to enter data. Inputs can have many types, some of the more common types are: text, email, number, datetime, password, checkbox, radio, button, file, and submit. When the input is used within a form, it needs an identifier, called the name. This is the key that is used to identify the value that a user enters.</p>
+        <code>&lt;form action="#" method="get" target="_self"&gt; &lt;/form&gt;</code>
+        <p>Forms have input elements that allow users to enter data. Inputs can have many types, some of the more common types are: text, email, number, datetime, password, checkbox, radio, button, file, and submit. When the data is sent within a form, it needs to be paired with an identifier, called the name. This is the key that is used to match which value a user entered in the specific input.</p>
         <code>&lt;input type="text" name="input"&gt;</code>
+        <p>Labels are needed so that users know what an input is used for. When associated correctly (using the for attribute), if the user clicks on the label the corresponding input field will come into focus.</p>
+        <code>&lt;label for="input_id"&gt;</code>
     </div>
   </body>
 </html>
