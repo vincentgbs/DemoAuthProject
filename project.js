@@ -26,6 +26,22 @@ const project = {
     }
 }
 
+frontend_grader = {
+    check: function(code) {
+        this.html_grader(code)
+    },
+    html_grader: function(code) {
+        var submission = document.createElement('html');
+        submission.innerHTML = code;
+
+        inputs = submission.getElementsByTagName('input');
+        console.debug(inputs)
+    },
+    js_grader: function(code) {
+        
+    }
+}
+
 
 
 instructions1 = 'Create a basic login form based on the elements you learned about in the previous lessons. <br>1. Make sure to include inputs named "username" and "password". <br>2. Be sure that the password is not visible when the user is typing it. <br>3. Include a button that submits the user input to the backend. <br>4. The form does not need to submit to a specific url, you can use "#" as the destination for this example.'
