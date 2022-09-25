@@ -21,10 +21,10 @@
           return false;
         }
         </code></pre>
-        <p>What are the drawbacks to this approach? If the database is breached, then everyone will know all your users passwords. Google 'database breaches' if you don't think they're a big deal (and a good reason to use password managers). But what other option do we have if we don't store username and passwords in the database? How else can you check that a user is entering the same information?</p>
-        <p>This is where hash functions come into play. Hash functions are 'one-way' functions that can take a key as input and return a mostly-unique, consistent value every time. For example: <code>hash('hello world')</code> might return 'aGVsbG93IHdvcmxk'. That means that everytime that a user enters 'hello world', the hash function will return 'aGVsbG93IHdvcmxk'. So now we can compare the hash instead of the password. The key difference between just comparing the password and comparing the hash of the password is, if you are given 'aGVsbG93IHdvcmxk', it is computationally infeasible to return 'hello world'.</p>
-        <p></p>
-        <p></p>
+        <p>What are the drawbacks to this approach? If the database is breached, then everyone will know all your users passwords. Google 'database breaches' if you don't think they're a big deal (and one reason to use password managers). But what other option do we have if we don't store username and passwords in the database? How else can you check that a user is entering the same information?</p>
+        <p>This is where hash functions come into play. Hash functions are 'one-way' functions that can take a key as input and return a unique(ish), consistent value every time. For example: <code>hash('hello world')</code> might return 'aGVsbG93IHdvcmxk'. That means that everytime that a user enters 'hello world', the hash function will return 'aGVsbG93IHdvcmxk'. So now we can compare the hash instead of the password. The key difference between just comparing the password and comparing the hash of the password is, if you are given 'aGVsbG93IHdvcmxk', it is computationally infeasible to return 'hello world'.</p>
+        <p>So we can just store the hash in the database instead. That seems like a good solution. If there is a database breach, our user's passwords won't be uncovered. That is true, but hashes do have a weakness, that is rainbow tables. This is essentially a dictionary of possible hashed passwords that can be used to check if a hash came from a certain password. Remember that 'hello world' always leads to 'aGVsbG93IHdvcmxk'. So if you save a dictionary where 'aGVsbG93IHdvcmxk' points to 'hello world', you can in essense reverse the hash.</p>
+        <p>This is why the authentication also requires a salt, and multiple hashing. A salt is a random string that is appended to the password before it is hashed, then appended to each resulting hash as it is rehashed.</p>
         <p></p>
         <p></p>
         <p></p>
