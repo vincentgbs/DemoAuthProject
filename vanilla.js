@@ -30,7 +30,6 @@ function create_editor(divId, parent, instructions, title) {
     child = document.createElement('div');
     child.className = "editor_body";
     child.setAttribute("id", divId);
-    console.debug(parent)
     document.querySelector(parent).appendChild(child);
     editor('#'+divId, instructions, title);
 }
