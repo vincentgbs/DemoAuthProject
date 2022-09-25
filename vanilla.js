@@ -24,9 +24,15 @@ function editor(parent, instructions, title) {
         var request = {"submission": submission, "code": code}
         console.log("This function should submits student code to the backend. This demo has no backend");
         if (typeof frontend_grader !== 'undefined') {
-            frontend_grader.check(request)
+            if (frontend_grader.check(request)) {
+                console.log('Good Job!')
+                document.querySelector(parent).style.display = 'none';
+            } else {
+                console.log('Try Again.')
+            }
+        } else {
+            document.querySelector(parent).style.display = 'none';
         }
-        document.querySelector(parent).style.display = 'none';
     });
 }
 

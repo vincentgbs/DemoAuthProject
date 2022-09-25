@@ -31,9 +31,9 @@ frontend_grader = {
         code = request['code']
         submission = request['submission']
         if (submission == 'Create Form (Frontend)') {
-            this.html_grader(code)
+            return this.html_grader(code)
         } else if (submission == 'Create Login (Backend)') {
-            this.js_grader(code)
+            return this.js_grader(code)
         }
     },
     html_grader: function(code) {
@@ -55,6 +55,8 @@ frontend_grader = {
         }
         if (check >= 2) {
             return true;
+        } else {
+            return false;
         }
     },
     js_grader: function(code) {
