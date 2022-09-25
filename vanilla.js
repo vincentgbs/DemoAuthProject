@@ -20,10 +20,11 @@ function editor(parent, instructions, title) {
 
     document.querySelector(parent + ' .submit_button').addEventListener("click", function(){
         var code = document.querySelector(parent + ' .code_editor').textContent
-        var request = {"submission":"html/javascript", "code": code}
+        var submission = document.querySelector(parent + ' .title').textContent
+        var request = {"submission": submission, "code": code}
         console.log("This function should submits student code to the backend. This demo has no backend");
         if (typeof frontend_grader !== 'undefined') {
-            frontend_grader.check(code)
+            frontend_grader.check(request)
         }
         document.querySelector(parent).style.display = 'none';
     });

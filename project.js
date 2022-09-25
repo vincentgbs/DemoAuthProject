@@ -27,18 +27,28 @@ const project = {
 }
 
 frontend_grader = {
-    check: function(code) {
-        this.html_grader(code)
+    check: function(request) {
+        code = request['code']
+        submission = request['submission']
+        if (submission == 'Create Form (Frontend)') {
+            this.html_grader(code)
+        } else if (submission == 'Create Login (Backend)') {
+            this.js_grader(code)
+        }
     },
     html_grader: function(code) {
         var submission = document.createElement('html');
         submission.innerHTML = code;
 
         inputs = submission.getElementsByTagName('input');
-        console.debug(inputs)
+        for (key in inputs) {
+            input = inputs[key]
+            console.debug(input.type)
+            console.debug(input.name)
+        }
     },
     js_grader: function(code) {
-        
+        //
     }
 }
 
