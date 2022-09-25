@@ -39,12 +39,22 @@ frontend_grader = {
     html_grader: function(code) {
         var submission = document.createElement('html');
         submission.innerHTML = code;
-
         inputs = submission.getElementsByTagName('input');
+        check_for = {
+            'username': 'text',
+            'password': 'password'
+        }
+        check = 0
         for (key in inputs) {
             input = inputs[key]
-            console.debug(input.type)
-            console.debug(input.name)
+            if (input.name in check_for) {
+                if (input.type == check_for[input.name]) {
+                    check += 1
+                }
+            }
+        }
+        if (check >= 2) {
+            return true;
         }
     },
     js_grader: function(code) {
