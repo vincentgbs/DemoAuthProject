@@ -1,4 +1,4 @@
-function editor(parent, instructions, title) {
+function editor(parent, instructions, title, code_wrapper) {
     document.querySelector(parent).innerHTML = `
     <h2 class="title">`+title+`</h2>
     <div class="left_column">
@@ -34,12 +34,12 @@ function editor(parent, instructions, title) {
             document.querySelector(parent).style.display = 'none';
         }
     });
-}
+} // function editor(parent, instructions, title, wrapper=false)
 
-function create_editor(divId, parent, instructions, title) {
+function create_editor(divId, parent, instructions, title, code_wrapper='') {
     child = document.createElement('div');
     child.className = "editor_body";
     child.setAttribute("id", divId);
     document.querySelector(parent).appendChild(child);
-    editor('#'+divId, instructions, title);
+    editor('#'+divId, instructions, title, code_wrapper);
 }

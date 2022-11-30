@@ -1,14 +1,15 @@
+<script>
 function process(post) {
-    let username = post['username']
-    let password = post['password']
+    let username = post['username'];
+    let password = post['password'];
 
-    let db_connection = project.connect('admin', 'password', 'localhost')
+    let db_connection = project.connect('admin', 'password', 'localhost');
 
-    let user = project.select(db_connection, username)
+    let user = project.select(db_connection, username);
 
-    hash = project.hash(password+user['salt'])
+    hash = project.hash(password+user['salt']);
     for (let i = 0; i < 10; i++) {
-        hash = project.hash(hash + user['salt'])
+        hash = project.hash(hash + user['salt']);
     }
 
     if (hash == user['password']) {
@@ -17,3 +18,4 @@ function process(post) {
         return false;
     }
 }
+</script>
