@@ -22,15 +22,15 @@ function editor(parent, instructions, title) {
         var code = document.querySelector(parent + ' .code_editor').textContent
         var submission = document.querySelector(parent + ' .title').textContent
         var request = {"submission": submission, "code": code}
-        console.log("This function should submits student code to the backend. This demo has no backend");
         if (typeof frontend_grader !== 'undefined') {
             if (frontend_grader.check(request)) {
-                console.log('Good Job!')
+                alert('Good Job!')
                 document.querySelector(parent).style.display = 'none';
             } else {
-                console.log('Try Again.')
+                alert('Try Again.')
             }
         } else {
+            console.log("This function should submit student code to the backend for grading. This demo has no backend.");
             document.querySelector(parent).style.display = 'none';
         }
     });
