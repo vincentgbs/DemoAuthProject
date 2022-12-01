@@ -18,17 +18,12 @@ function editor(parent, instructions, title, code_wrapper) {
         runtime_environment.src = "data:text/html;charset=utf-8," + encodeURI(code_editor.textContent)
     });
 
-    document.querySelector(parent + ' .submit_button').addEventListener("click", async function(){
+    document.querySelector(parent + ' .submit_button').addEventListener("click", function(){
         var code = document.querySelector(parent + ' .code_editor').textContent
         var submission = document.querySelector(parent + ' .title').textContent
         var request = {"submission": submission, "code": code}
         if (typeof frontend_grader !== 'undefined') {
-            if (await frontend_grader.check(request)) {
-                document.querySelector(parent).style.display = 'none';
-                alert('Good Job!');
-            } else {
-                alert('Try Again.');
-            }
+            frontend_grader.check(request, document.querySelector(parent));
         } else { // backend_grader
             console.log("This function should submit student code to the backend for grading. The demo has no backend.");
             document.querySelector(parent).style.display = 'none';

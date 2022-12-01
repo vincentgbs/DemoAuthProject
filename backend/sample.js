@@ -12,7 +12,7 @@ function process(post) {
         hash = project.hash(hash + user['salt']);
     }
 
-    if (hash == user['password']) {
+    if (username == user['username'] && hash == user['password']) {
         return true;
     } else {
         return false;
