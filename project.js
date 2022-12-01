@@ -58,20 +58,26 @@ frontend_grader = {
             return false;
         }
     },
-    js_grader: function(code) {
+    js_grader: async function(code) {
         var submission = document.createElement('html');
         submission.innerHTML = code;
-        console.debug(code);
-        if (typeof process !== 'undefined') {
-            check_true = process({'username': 'username', 'password': 'password'})
-            check_false = process({'username': 'wrong', 'password': 'wrong'})
-            if (check_true && !check_false) {
-                return true;
-            }
-        } else {
-            alert('You must define a `process` function');
-        }
-        return false;
+        code = code.substr(8, code.length-(8+9));
+        eval(code);
+        setTimeout(function() {
+          if (typeof process !== 'undefined') {
+              check_true = process({'username': 'username', 'password': 'password'})
+              check_false = process({'username': 'wrong', 'password': 'wrong'})
+              if (check_true && !check_false) {
+                  return true;
+              }
+              console.debug(check_true);
+              console.debug(check_false);
+              return false;
+          } else {
+              alert('You must define a `process` function');
+          }
+          return false;
+        }, 999);
     }
 }
 
